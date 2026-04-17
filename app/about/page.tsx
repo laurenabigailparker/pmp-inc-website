@@ -53,7 +53,7 @@ export default function AboutPage() {
     <main className="bg-[#5b4636] text-[#f3eee7]">
       <section className="relative min-h-[70svh] overflow-hidden sm:min-h-[78svh]">
         <Image
-          src="/images/about.jpg"
+          src="/images/about-new.jpg"
           alt="About PMP Inc"
           fill
           priority
