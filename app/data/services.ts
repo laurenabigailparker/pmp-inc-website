@@ -90,24 +90,24 @@ export const services: Service[] = [
     ],
   },
   {
-  slug: "digital-presence",
-  title: "Digital Presence",
-  eyebrow: "Brand & Web",
-  shortText:
-    "Refined website design and digital presence built to reflect your brand with clarity, intention, and elevated aesthetic.",
-  heroText:
-    "Your online presence should feel just as intentional and refined as the experience you offer in real life. We design websites and digital spaces that reflect your brand with clarity, trust, and quiet confidence.",
-  includes: [
-    "Website design and layout",
-    "Brand-aligned visual direction",
-    "User experience refinement",
-    "Mobile optimization",
-    "Clean, modern development",
-  ],
-  idealFor: [
-    "Business owners building a luxury brand",
-    "Professionals wanting a more elevated online presence",
-    "Clients seeking clean, modern, and intentional design",
-  ],
-}
+    slug: "digital-presence",
+    title: "Digital Presence",
+    eyebrow: "Brand & Web",
+    shortText:
+      "Refined website design and digital presence built to reflect your brand with clarity, intention, and elevated aesthetic.",
+    heroText:
+      "Your online presence should feel just as intentional and refined as the experience you offer in real life. We design websites and digital spaces that reflect your brand with clarity, trust, and quiet confidence.",
+    includes: [
+      "Website design and layout",
+      "Brand-aligned visual direction",
+      "User experience refinement",
+      "Mobile optimization",
+      "Clean, modern development",
+    ],
+    idealFor: [
+      "Business owners building a luxury brand",
+      "Professionals wanting a more elevated online presence",
+      "Clients seeking clean, modern, and intentional design",
+    ],
+  },
 ];

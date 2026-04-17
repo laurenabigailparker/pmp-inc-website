@@ -27,9 +27,7 @@ export default function Reveal({
           observer.unobserve(node);
         }
       },
-      {
-        threshold: 0.15,
-      }
+      { threshold: 0.15 }
     );
 
     observer.observe(node);
