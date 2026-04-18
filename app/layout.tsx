@@ -33,7 +33,7 @@ export default function RootLayout({
 
         <div style={{ fontFamily: "var(--font-montserrat)" }}>{children}</div>
 
-        <footer className="border-t border-[rgba(243,238,231,0.12)] bg-[#5b4636] text-[#f3eee7]">
+        <footer className="border-t border-[rgba(212,175,55,0.18)] bg-[#2C1F1A] text-[#F3EEE7]">
           <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 md:px-10 lg:px-16 lg:py-16">
             <div className="grid gap-10 md:grid-cols-2">
               <div>
@@ -44,33 +44,33 @@ export default function RootLayout({
                   PMP Inc
                 </p>
 
-                <p className="mt-5 max-w-md text-sm leading-7 text-[#e6d5c7]">
+                <p className="mt-5 max-w-md text-sm leading-7 text-[#E6D5C7]">
                   Trusted connections, elevated services, and a more refined way
                   to access the right support across lifestyle, design, home,
                   business, and digital presence.
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 text-sm uppercase tracking-[0.2em] text-[#e6d5c7] md:items-end">
-                <Link href="/" className="transition hover:opacity-70">
+              <div className="flex flex-col gap-3 text-sm uppercase tracking-[0.2em] text-[#E6D5C7] md:items-end">
+                <Link href="/" className="transition hover:text-[#D4AF37]">
                   Home
                 </Link>
-                <Link href="/about" className="transition hover:opacity-70">
+                <Link href="/about" className="transition hover:text-[#D4AF37]">
                   About
                 </Link>
-                <Link href="/network" className="transition hover:opacity-70">
+                <Link href="/network" className="transition hover:text-[#D4AF37]">
                   Network
                 </Link>
-                <Link href="/services" className="transition hover:opacity-70">
+                <Link href="/services" className="transition hover:text-[#D4AF37]">
                   Services
                 </Link>
-                <Link href="/contact" className="transition hover:opacity-70">
+                <Link href="/contact" className="transition hover:text-[#D4AF37]">
                   Contact
                 </Link>
               </div>
             </div>
 
-            <div className="mt-12 border-t border-[rgba(243,238,231,0.12)] pt-6 text-sm text-[#cbb7a6]">
+            <div className="mt-12 border-t border-[rgba(212,175,55,0.18)] pt-6 text-sm text-[#C6A96B]">
               © 2026 PMP Inc. All rights reserved.
             </div>
           </div>
