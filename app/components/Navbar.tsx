@@ -23,49 +23,49 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", closeMenu);
   }, []);
 
-  const linkClass = "group relative transition hover:text-[#D4AF37]";
+  const linkClass = "group relative transition hover:text-[#CCB363]";
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-[rgba(212,175,55,0.18)] bg-[#2C1F1A]/95 shadow-[0_8px_30px_rgba(0,0,0,0.16)] backdrop-blur-md"
-          : "border-b border-transparent bg-[#2C1F1A]/82 backdrop-blur-sm"
+          ? "border-b border-[rgba(204,179,99,0.22)] bg-[#1E3226]/95 shadow-[0_8px_30px_rgba(0,0,0,0.18)] backdrop-blur-md"
+          : "border-b border-transparent bg-[#1E3226]/82 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 md:px-10 lg:px-16">
         <Link
           href="/"
-          className="group relative text-lg font-light uppercase tracking-[0.22em] text-[#F3EEE7] transition sm:text-xl md:text-2xl"
+          className="group relative text-lg font-light uppercase tracking-[0.22em] text-[#F8EDC3] transition sm:text-xl md:text-2xl"
           style={{ fontFamily: "var(--font-cormorant)" }}
         >
           PMP Inc
-          <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
+          <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
         </Link>
 
         <nav
-          className="hidden items-center gap-5 text-[11px] uppercase tracking-[0.22em] text-[#F3EEE7] md:flex lg:gap-8 lg:text-sm"
+          className="hidden items-center gap-5 text-[11px] uppercase tracking-[0.22em] text-[#F8EDC3] md:flex lg:gap-8 lg:text-sm"
           style={{ fontFamily: "var(--font-montserrat)" }}
         >
           <Link href="/" className={linkClass}>
             Home
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
+            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
           <Link href="/about" className={linkClass}>
             About
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
+            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
           <Link href="/network" className={linkClass}>
             Network
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
+            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
           <Link href="/services" className={linkClass}>
             Services
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
+            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
           <Link href="/contact" className={linkClass}>
             Contact
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
+            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
         </nav>
 
@@ -73,7 +73,7 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="flex items-center justify-center border border-[rgba(212,175,55,0.28)] px-3 py-2 text-xs uppercase tracking-[0.22em] text-[#F3EEE7] md:hidden"
+          className="flex items-center justify-center border border-[rgba(204,179,99,0.28)] px-3 py-2 text-xs uppercase tracking-[0.22em] text-[#F8EDC3] md:hidden"
           style={{ fontFamily: "var(--font-montserrat)" }}
         >
           Menu
@@ -81,9 +81,9 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-[rgba(212,175,55,0.18)] bg-[#2C1F1A] md:hidden">
+        <div className="border-t border-[rgba(204,179,99,0.18)] bg-[#1E3226] md:hidden">
           <nav
-            className="mx-auto flex max-w-7xl flex-col px-5 py-4 text-xs uppercase tracking-[0.22em] text-[#F3EEE7] sm:px-6"
+            className="mx-auto flex max-w-7xl flex-col px-5 py-4 text-xs uppercase tracking-[0.22em] text-[#F8EDC3] sm:px-6"
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             <Link href="/" onClick={() => setMenuOpen(false)} className="py-3">
