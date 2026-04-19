@@ -13,10 +13,10 @@ export default function ServicesPage() {
   };
 
   return (
-    <main className="bg-[#5b4636] text-[#f3eee7]">
-      <section className="bg-[#5b4636] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
+    <main className="bg-[#1E3226] text-[#F8EDC3]">
+      <section className="bg-[#1E3226] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="text-sm uppercase tracking-[0.35em] text-[#d8c5b5]">
+          <p className="text-sm uppercase tracking-[0.35em] text-[#F8EDC3]/85">
             Services
           </p>
 
@@ -24,7 +24,7 @@ export default function ServicesPage() {
             Refined support, thoughtfully offered.
           </h1>
 
-          <p className="mt-8 max-w-3xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8 md:text-xl">
+          <p className="mt-8 max-w-3xl text-base leading-7 text-[#F8EDC3]/92 sm:text-lg sm:leading-8 md:text-xl">
             Our services are designed for clients who want more than convenience.
             They want quality, trust, discretion, and a more considered way to
             access the right support.
@@ -32,9 +32,9 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[#f3eee7] px-5 py-16 text-[#5b4636] sm:px-6 md:px-10 lg:px-16 lg:py-24">
+      <section className="bg-[#F8EDC3] px-5 py-16 text-[#1E3226] sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="text-center text-sm uppercase tracking-[0.3em] text-[#9a7b67]">
+          <p className="text-center text-sm uppercase tracking-[0.3em] text-[#C27E35]">
             What We Offer
           </p>
 
@@ -47,10 +47,10 @@ export default function ServicesPage() {
               <Reveal key={service.slug} delay={index * 120}>
                 <Link
                   href={`/services/${service.slug}`}
-                  className={`group block overflow-hidden border bg-[#f3eee7] transition duration-500 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(91,70,54,0.08)] ${
+                  className={`group block overflow-hidden border bg-[#fff7dd] transition duration-500 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)] ${
                     service.slug === "digital-presence"
-                      ? "border-[#9a7b67] ring-1 ring-[rgba(154,123,103,0.18)]"
-                      : "border-[rgba(91,70,54,0.12)]"
+                      ? "border-[#C27E35] ring-1 ring-[rgba(194,126,53,0.18)]"
+                      : "border-[rgba(194,126,53,0.18)]"
                   }`}
                 >
                   <div className="relative h-[220px] w-full overflow-hidden sm:h-[240px] md:h-[260px]">
@@ -61,11 +61,11 @@ export default function ServicesPage() {
                       className="object-cover transition duration-700 group-hover:scale-105"
                     />
 
-                    <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(91,70,54,0.45),rgba(243,238,231,0.05))]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(30,50,38,0.4),rgba(248,237,195,0.04))]" />
 
                     <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
                       <p
-                        className={`text-xs uppercase tracking-[0.3em] text-white ${
+                        className={`text-xs uppercase tracking-[0.3em] text-[#F8EDC3] ${
                           service.slug === "digital-presence" ? "font-semibold" : ""
                         }`}
                       >
@@ -75,15 +75,15 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="px-6 py-8 sm:px-8 sm:py-10">
-                    <h3 className="text-xl font-light uppercase tracking-[0.04em] text-[#5b4636] sm:text-2xl">
+                    <h3 className="text-xl font-light uppercase tracking-[0.04em] text-[#1E3226] sm:text-2xl">
                       {service.title}
                     </h3>
 
-                    <p className="mt-5 leading-7 text-[#6b5647] sm:leading-8">
+                    <p className="mt-5 leading-7 text-[#1E3226]/80 sm:leading-8">
                       {service.shortText}
                     </p>
 
-                    <p className="mt-8 text-sm uppercase tracking-[0.22em] text-[#9a7b67] opacity-0 transition duration-300 group-hover:opacity-100">
+                    <p className="mt-8 text-sm uppercase tracking-[0.22em] text-[#C27E35] opacity-0 transition duration-300 group-hover:opacity-100">
                       View Details
                     </p>
                   </div>
@@ -94,9 +94,9 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[#5b4636] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-7xl border border-[rgba(243,238,231,0.12)] px-6 py-12 sm:px-8 sm:py-14 md:px-12 lg:px-16 lg:py-20">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#d8c5b5]">
+      <section className="bg-[#6F7D7B] px-5 py-16 text-[#F8EDC3] sm:px-6 md:px-10 lg:px-16 lg:py-24">
+        <div className="mx-auto max-w-7xl border border-[rgba(248,237,195,0.16)] px-6 py-12 sm:px-8 sm:py-14 md:px-12 lg:px-16 lg:py-20">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#CCB363]">
             Private Inquiry
           </p>
 
@@ -104,7 +104,7 @@ export default function ServicesPage() {
             Ready to find the right fit?
           </h2>
 
-          <p className="mt-6 max-w-2xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-[#F8EDC3]/92 sm:text-lg sm:leading-8">
             Whether you need one trusted introduction or broader concierge-style
             guidance, PMP Inc is here to help direct the next step.
           </p>
@@ -112,21 +112,21 @@ export default function ServicesPage() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-[#f3eee7] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#5b4636] transition hover:bg-[#e9dfd4] sm:px-10"
+              className="inline-flex items-center justify-center bg-[#CCB363] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#1E3226] transition hover:bg-[#F8EDC3] sm:px-10"
             >
               Contact Us
             </Link>
 
             <Link
               href="/network"
-              className="inline-flex items-center justify-center border border-[#f3eee7] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#f3eee7] transition hover:bg-[#f3eee7] hover:text-[#5b4636] sm:px-10"
+              className="inline-flex items-center justify-center border border-[#CCB363] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F8EDC3] transition hover:bg-[#CCB363] hover:text-[#1E3226] sm:px-10"
             >
               Explore Network
             </Link>
 
             <Link
               href="/checkout"
-              className="inline-flex items-center justify-center border border-[#f3eee7] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#f3eee7] transition hover:bg-[#f3eee7] hover:text-[#5b4636] sm:px-10"
+              className="inline-flex items-center justify-center border border-[#CCB363] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#F8EDC3] transition hover:bg-[#CCB363] hover:text-[#1E3226] sm:px-10"
             >
               Continue to Checkout
             </Link>
