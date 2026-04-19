@@ -1,109 +1,68 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
+const languages = ["en", "es", "ru", "ja"];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
-    };
+  const segments = pathname.split("/").filter(Boolean);
+  const currentLocale = segments[0] || "en";
+  const rest = segments.slice(1).join("/");
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const closeMenu = () => setMenuOpen(false);
-    window.addEventListener("resize", closeMenu);
-    return () => window.removeEventListener("resize", closeMenu);
-  }, []);
-
-  const linkClass = "group relative transition hover:text-[#CCB363]";
+  const link = (path: string) =>
+    `/${currentLocale}${path ? `/${path}` : ""}`;
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "border-b border-[rgba(204,179,99,0.22)] bg-[#1E3226]/95 shadow-[0_8px_30px_rgba(0,0,0,0.18)] backdrop-blur-md"
-          : "border-b border-transparent bg-[#1E3226]/82 backdrop-blur-sm"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 md:px-10 lg:px-16">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#1E3226]/90 backdrop-blur-md border-b border-[rgba(204,179,99,0.15)]">
+      <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+        
+        {/* LOGO */}
         <Link
-          href="/"
-          className="group relative text-lg font-light uppercase tracking-[0.22em] text-[#F8EDC3] transition sm:text-xl md:text-2xl"
-          style={{ fontFamily: "var(--font-cormorant)" }}
+          href={`/${currentLocale}`}
+          className="text-lg uppercase tracking-[0.25em] text-[#F8EDC3]"
         >
           PMP Inc
-          <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
         </Link>
 
-        <nav
-          className="hidden items-center gap-5 text-[11px] uppercase tracking-[0.22em] text-[#F8EDC3] md:flex lg:gap-8 lg:text-sm"
-          style={{ fontFamily: "var(--font-montserrat)" }}
-        >
-          <Link href="/" className={linkClass}>
+        {/* NAV LINKS */}
+        <nav className="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.2em] text-[#F8EDC3]/85">
+          <Link href={link("")} className="hover:text-[#CCB363]">
             Home
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
-          <Link href="/about" className={linkClass}>
+          <Link href={link("about")} className="hover:text-[#CCB363]">
             About
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
-          <Link href="/network" className={linkClass}>
+          <Link href={link("network")} className="hover:text-[#CCB363]">
             Network
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
-          <Link href="/services" className={linkClass}>
+          <Link href={link("services")} className="hover:text-[#CCB363]">
             Services
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
-          <Link href="/contact" className={linkClass}>
+          <Link href={link("contact")} className="hover:text-[#CCB363]">
             Contact
-            <span className="absolute left-0 top-full mt-1 h-px w-0 bg-[#CCB363] transition-all duration-300 group-hover:w-full" />
           </Link>
         </nav>
 
-        <button
-          type="button"
-          aria-label="Toggle menu"
-          onClick={() => setMenuOpen((prev) => !prev)}
-          className="flex items-center justify-center border border-[rgba(204,179,99,0.28)] px-3 py-2 text-xs uppercase tracking-[0.22em] text-[#F8EDC3] md:hidden"
-          style={{ fontFamily: "var(--font-montserrat)" }}
-        >
-          Menu
-        </button>
-      </div>
-
-      {menuOpen && (
-        <div className="border-t border-[rgba(204,179,99,0.18)] bg-[#1E3226] md:hidden">
-          <nav
-            className="mx-auto flex max-w-7xl flex-col px-5 py-4 text-xs uppercase tracking-[0.22em] text-[#F8EDC3] sm:px-6"
-            style={{ fontFamily: "var(--font-montserrat)" }}
-          >
-            <Link href="/" onClick={() => setMenuOpen(false)} className="py-3">
-              Home
+        {/* LANGUAGE SWITCHER */}
+        <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em]">
+          {languages.map((lang) => (
+            <Link
+              key={lang}
+              href={`/${lang}${rest ? `/${rest}` : ""}`}
+              className={
+                currentLocale === lang
+                  ? "text-[#CCB363]"
+                  : "text-[#F8EDC3]/60 hover:text-[#CCB363]"
+              }
+            >
+              {lang}
             </Link>
-            <Link href="/about" onClick={() => setMenuOpen(false)} className="py-3">
-              About
-            </Link>
-            <Link href="/network" onClick={() => setMenuOpen(false)} className="py-3">
-              Network
-            </Link>
-            <Link href="/services" onClick={() => setMenuOpen(false)} className="py-3">
-              Services
-            </Link>
-            <Link href="/contact" onClick={() => setMenuOpen(false)} className="py-3">
-              Contact
-            </Link>
-          </nav>
+          ))}
         </div>
-      )}
+      </div>
     </header>
   );
 }
