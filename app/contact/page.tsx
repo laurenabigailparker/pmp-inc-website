@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <main className="bg-[#5b4636] text-[#f3eee7]">
+    <main className="bg-[#1E3226] text-[#F8EDC3]">
       <section className="relative min-h-[70svh] overflow-hidden sm:min-h-[78svh]">
         <Image
           src="/images/workspace.jpg"
@@ -11,11 +11,11 @@ export default function ContactPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(91,70,54,0.42),rgba(91,70,54,0.82))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(111,125,123,0.2),rgba(30,50,38,0.9))]" />
 
         <div className="relative z-10 mx-auto flex min-h-[70svh] max-w-7xl items-end px-5 py-16 sm:min-h-[78svh] sm:px-6 md:px-10 lg:px-16 lg:py-24">
           <div className="max-w-4xl">
-            <p className="text-sm uppercase tracking-[0.35em] text-[#d8c5b5]">
+            <p className="text-sm uppercase tracking-[0.35em] text-[#F8EDC3]/85">
               Contact
             </p>
 
@@ -23,7 +23,7 @@ export default function ContactPage() {
               Start your private inquiry.
             </h1>
 
-            <p className="mt-8 max-w-3xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8 md:text-xl">
+            <p className="mt-8 max-w-3xl text-base leading-7 text-[#F8EDC3]/92 sm:text-lg sm:leading-8 md:text-xl">
               Tell us what you are looking for and we will help guide you toward
               the right connection, service, or next step.
             </p>
@@ -31,17 +31,17 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-[#f3eee7] px-5 py-16 text-[#5b4636] sm:px-6 md:px-10 lg:px-16 lg:py-24">
+      <section className="bg-[#F8EDC3] px-5 py-16 text-[#1E3226] sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#9a7b67]">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#C27E35]">
               Inquire
             </p>
             <h2 className="mt-6 max-w-xl text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
               A more thoughtful way to begin the conversation.
             </h2>
 
-            <div className="mt-8 space-y-6 text-base leading-7 text-[#6b5647] sm:text-lg sm:leading-9">
+            <div className="mt-8 space-y-6 text-base leading-7 text-[#1E3226]/82 sm:text-lg sm:leading-9">
               <p>
                 Whether you are seeking a trusted referral, concierge support,
                 design guidance, or a more tailored connection, this is the best
@@ -55,36 +55,36 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <form className="grid gap-px bg-[rgba(91,70,54,0.12)]">
+          <form className="grid gap-px bg-[rgba(194,126,53,0.18)]">
             <input
               type="text"
               placeholder="Full Name"
-              className="bg-[#f3eee7] px-5 py-4 text-[#5b4636] outline-none placeholder:text-[#9a7b67] sm:px-6 sm:py-5"
+              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
             />
             <input
               type="email"
               placeholder="Email Address"
-              className="bg-[#f3eee7] px-5 py-4 text-[#5b4636] outline-none placeholder:text-[#9a7b67] sm:px-6 sm:py-5"
+              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
             />
             <input
               type="text"
               placeholder="Phone Number"
-              className="bg-[#f3eee7] px-5 py-4 text-[#5b4636] outline-none placeholder:text-[#9a7b67] sm:px-6 sm:py-5"
+              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
             />
             <input
               type="text"
               placeholder="Service or Inquiry Type"
-              className="bg-[#f3eee7] px-5 py-4 text-[#5b4636] outline-none placeholder:text-[#9a7b67] sm:px-6 sm:py-5"
+              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
             />
             <textarea
               placeholder="Tell us more about what you need..."
               rows={7}
-              className="bg-[#f3eee7] px-5 py-4 text-[#5b4636] outline-none placeholder:text-[#9a7b67] sm:px-6 sm:py-5"
+              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
             />
-            <div className="bg-[#f3eee7] px-5 py-5 sm:px-6 sm:py-6">
+            <div className="bg-[#fff7dd] px-5 py-5 sm:px-6 sm:py-6">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center bg-[#5b4636] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#f3eee7] transition hover:bg-[#675140] sm:px-10"
+                className="inline-flex items-center justify-center bg-[#CCB363] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#1E3226] transition hover:bg-[#C27E35] hover:text-[#F8EDC3] sm:px-10"
               >
                 Submit Inquiry
               </button>
@@ -93,9 +93,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-[#5b4636] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-7xl border border-[rgba(243,238,231,0.12)] px-6 py-12 sm:px-8 sm:py-14 md:px-12 lg:px-16 lg:py-20">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#d8c5b5]">
+      <section className="bg-[#76290B] px-5 py-16 text-[#F8EDC3] sm:px-6 md:px-10 lg:px-16 lg:py-24">
+        <div className="mx-auto max-w-7xl border border-[rgba(248,237,195,0.16)] px-6 py-12 sm:px-8 sm:py-14 md:px-12 lg:px-16 lg:py-20">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#F8EDC3]/82">
             Refined Support
           </p>
 
@@ -103,7 +103,7 @@ export default function ContactPage() {
             Every great connection starts with clarity.
           </h2>
 
-          <p className="mt-6 max-w-2xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-[#F8EDC3]/92 sm:text-lg sm:leading-8">
             We believe the right experience begins before the introduction is ever made.
             That is why every inquiry is approached with intention, discretion, and care.
           </p>
