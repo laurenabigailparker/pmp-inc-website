@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import Reveal from "../../components/Reveal";
 
-const networkCopy = {
+const copy = {
   en: {
     eyebrow: "The Network",
     title: "A curated world of trusted connections.",
@@ -14,6 +14,11 @@ const networkCopy = {
     why: "Why This Hits Different",
     whyTitle:
       "It is not about knowing everyone. It is about knowing the right people.",
+    why1:
+      "A real network does more than offer options. It creates confidence. It saves time, removes noise, and gives clients a more intentional path forward.",
+    why2:
+      "That is what PMP Inc is building — a relationship-driven ecosystem where trust, taste, and quality shape every connection.",
+    why3: "The result is a network that feels expansive, but never random.",
     ctaEyebrow: "Private Access",
     ctaTitle: "Need the right connection?",
     ctaText:
@@ -25,13 +30,19 @@ const networkCopy = {
     eyebrow: "La Red",
     title: "Un mundo seleccionado de conexiones de confianza.",
     intro:
-      "No es una lista aleatoria de nombres. Es una red creada con intención de profesionales, servicios y referencias confiables.",
+      "No es una lista aleatoria de nombres. Es una red cuidadosamente construida de profesionales, servicios y referencias confiables.",
     why: "Por Qué Se Siente Diferente",
-    whyTitle: "No se trata de conocer a todos. Se trata de conocer a las personas correctas.",
+    whyTitle:
+      "No se trata de conocer a todos. Se trata de conocer a las personas correctas.",
+    why1:
+      "Una red real hace más que ofrecer opciones. Crea confianza, ahorra tiempo y elimina ruido.",
+    why2:
+      "Eso es lo que PMP Inc está construyendo: un ecosistema guiado por relaciones donde la confianza y la calidad definen cada conexión.",
+    why3: "El resultado es una red amplia, pero nunca aleatoria.",
     ctaEyebrow: "Acceso Privado",
     ctaTitle: "¿Necesitas la conexión correcta?",
     ctaText:
-      "Cuéntanos qué estás buscando y te guiaremos hacia los profesionales y servicios mejor alineados con tus necesidades.",
+      "Cuéntanos qué estás buscando y te guiaremos hacia los profesionales y servicios más alineados con tus necesidades.",
     contact: "Contáctanos",
     services: "Ver Servicios",
   },
@@ -39,13 +50,19 @@ const networkCopy = {
     eyebrow: "Сеть",
     title: "Тщательно выстроенный мир надёжных связей.",
     intro:
-      "Это не случайный список имён. Это продуманная сеть профессионалов, услуг и рекомендаций, созданная для реальной жизни и высокого уровня доверия.",
+      "Это не случайный список имён. Это продуманная сеть профессионалов, услуг и рекомендаций.",
     why: "Почему Это Ощущается Иначе",
-    whyTitle: "Дело не в том, чтобы знать всех. Дело в том, чтобы знать нужных людей.",
+    whyTitle:
+      "Дело не в том, чтобы знать всех. Дело в том, чтобы знать нужных людей.",
+    why1:
+      "Настоящая сеть делает больше, чем просто даёт варианты. Она создаёт уверенность и экономит время.",
+    why2:
+      "Именно это строит PMP Inc — экосистему, где доверие и качество формируют каждую связь.",
+    why3: "Результат — широкая сеть, но никогда не случайная.",
     ctaEyebrow: "Частный Доступ",
     ctaTitle: "Нужна правильная связь?",
     ctaText:
-      "Расскажите, что вы ищете, и мы направим вас к специалистам и услугам, которые лучше всего подойдут.",
+      "Расскажите, что вы ищете, и мы направим вас к специалистам и услугам, которые подходят лучше всего.",
     contact: "Связаться",
     services: "Посмотреть Услуги",
   },
@@ -53,13 +70,19 @@ const networkCopy = {
     eyebrow: "ネットワーク",
     title: "信頼できるつながりを厳選した世界。",
     intro:
-      "これは単なる名前の一覧ではありません。実生活、美しい暮らし、そして高い信頼のために丁寧に築かれたネットワークです。",
+      "これは単なる名前の一覧ではありません。丁寧に築かれた専門家・サービス・紹介のネットワークです。",
     why: "違いを感じる理由",
-    whyTitle: "大切なのは誰でも知っていることではなく、正しい人を知っていることです。",
+    whyTitle:
+      "大切なのは誰でも知っていることではなく、正しい人を知っていることです。",
+    why1:
+      "本当に価値あるネットワークは、選択肢を増やすだけではありません。安心感を生み出します。",
+    why2:
+      "それが PMP Inc が築いているものです。信頼と品質がすべてのつながりを形づくります。",
+    why3: "その結果、広がりがありながらも決して雑ではないネットワークになります。",
     ctaEyebrow: "プライベートアクセス",
     ctaTitle: "必要なつながりをお探しですか？",
     ctaText:
-      "求めているものをお聞かせいただければ、最適な専門家やサービスへご案内します。",
+      "お探しの内容をお聞かせいただければ、最適な専門家やサービスへご案内します。",
     contact: "お問い合わせ",
     services: "サービスを見る",
   },
@@ -166,18 +189,9 @@ export default function NetworkPage({
   params: { locale: string };
 }) {
   const [activeFilter, setActiveFilter] = useState("All");
-  const copy =
-    networkCopy[params.locale as keyof typeof networkCopy] ?? networkCopy.en;
+  const t = copy[params.locale as keyof typeof copy] ?? copy.en;
 
-  const filters = [
-    "All",
-    "Design",
-    "Lifestyle",
-    "Home",
-    "Business",
-    "Wellness",
-    "Specialty",
-  ];
+  const filters = ["All", "Design", "Lifestyle", "Home", "Business", "Wellness", "Specialty"];
 
   const filteredItems = useMemo(() => {
     if (activeFilter === "All") return networkItems;
@@ -195,16 +209,12 @@ export default function NetworkPage({
     <main className="bg-[#1E3226] pt-24 text-[#F8EDC3]">
       <section className="bg-[#1E3226] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="text-sm uppercase tracking-[0.35em] text-[#F8EDC3]/85">
-            {copy.eyebrow}
-          </p>
-
+          <p className="text-sm uppercase tracking-[0.35em] text-[#F8EDC3]/85">{t.eyebrow}</p>
           <h1 className="mt-6 max-w-5xl text-4xl font-light uppercase leading-[1.03] tracking-[0.04em] sm:text-5xl md:text-6xl lg:text-7xl">
-            {copy.title}
+            {t.title}
           </h1>
-
           <p className="mt-8 max-w-3xl text-base leading-7 text-[#F8EDC3]/92 sm:text-lg sm:leading-8 md:text-xl">
-            {copy.intro}
+            {t.intro}
           </p>
         </div>
       </section>
@@ -214,7 +224,6 @@ export default function NetworkPage({
           <div className="flex flex-wrap gap-3 sm:gap-4">
             {filters.map((filter) => {
               const isActive = activeFilter === filter;
-
               return (
                 <button
                   key={filter}
@@ -237,17 +246,10 @@ export default function NetworkPage({
               <Reveal key={`${item.category}-${item.title}`} delay={index * 120}>
                 <div className="group overflow-hidden border border-[rgba(248,237,195,0.16)] bg-[#6F7D7B] transition duration-500 hover:-translate-y-1 hover:bg-[#7b8a88] hover:shadow-[0_18px_40px_rgba(0,0,0,0.16)]">
                   <div className="relative h-[220px] w-full overflow-hidden sm:h-[240px] md:h-[270px]">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition duration-700 group-hover:scale-105"
-                    />
+                    <Image src={item.image} alt={item.title} fill className="object-cover transition duration-700 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(30,50,38,0.52),rgba(248,237,195,0.04))]" />
                     <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-                      <p className="text-xs uppercase tracking-[0.28em] text-[#F8EDC3]">
-                        {item.label}
-                      </p>
+                      <p className="text-xs uppercase tracking-[0.28em] text-[#F8EDC3]">{item.label}</p>
                     </div>
                   </div>
 
@@ -255,20 +257,7 @@ export default function NetworkPage({
                     <h3 className="text-xl font-light uppercase tracking-[0.04em] text-[#F8EDC3] sm:text-2xl">
                       {item.title}
                     </h3>
-
-                    <p className="mt-5 leading-7 text-[#F8EDC3]/90 sm:leading-8">
-                      {item.text}
-                    </p>
-
-                    <div className="mt-8 flex items-center justify-between gap-3">
-                      <span className="border border-[rgba(248,237,195,0.2)] px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-[#CCB363] sm:px-4 sm:text-xs">
-                        {item.category}
-                      </span>
-
-                      <span className="text-[11px] uppercase tracking-[0.22em] text-[#F8EDC3]/80 opacity-0 transition duration-300 group-hover:opacity-100 sm:text-xs">
-                        Trusted Access
-                      </span>
-                    </div>
+                    <p className="mt-5 leading-7 text-[#F8EDC3]/90 sm:leading-8">{item.text}</p>
                   </div>
                 </div>
               </Reveal>
@@ -279,43 +268,26 @@ export default function NetworkPage({
 
       <section className="bg-[#F8EDC3] px-5 py-16 text-[#1E3226] sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#C27E35]">
-            {copy.why}
-          </p>
-
+          <p className="text-sm uppercase tracking-[0.3em] text-[#C27E35]">{t.why}</p>
           <h2 className="mt-6 text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
-            {copy.whyTitle}
+            {t.whyTitle}
           </h2>
-
           <div className="mt-8 space-y-6 text-base leading-7 text-[#1E3226]/82 sm:text-lg sm:leading-9">
-            <p>
-              A real network does more than offer options. It creates confidence.
-              It saves time, removes noise, and gives clients a more intentional
-              path forward.
-            </p>
-
-            <p>
-              That is what PMP Inc is building — a relationship-driven ecosystem
-              where trust, taste, and quality shape every connection.
-            </p>
-
-            <p>The result is a network that feels expansive, but never random.</p>
+            <p>{t.why1}</p>
+            <p>{t.why2}</p>
+            <p>{t.why3}</p>
           </div>
         </div>
       </section>
 
       <section className="bg-[#76290B] px-5 py-16 text-[#F8EDC3] sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-7xl border border-[rgba(248,237,195,0.16)] px-6 py-12 sm:px-8 sm:py-14 md:px-12 lg:px-16 lg:py-20">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#F8EDC3]/82">
-            {copy.ctaEyebrow}
-          </p>
-
+          <p className="text-sm uppercase tracking-[0.3em] text-[#F8EDC3]/82">{t.ctaEyebrow}</p>
           <h2 className="mt-6 max-w-3xl text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
-            {copy.ctaTitle}
+            {t.ctaTitle}
           </h2>
-
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#F8EDC3]/92 sm:text-lg sm:leading-8">
-            {copy.ctaText}
+            {t.ctaText}
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -323,14 +295,14 @@ export default function NetworkPage({
               href={`/${params.locale}/contact`}
               className="inline-flex items-center justify-center bg-[#CCB363] px-8 py-4 text-sm uppercase tracking-[0.2em] text-[#1E3226] transition hover:bg-[#F8EDC3]"
             >
-              {copy.contact}
+              {t.contact}
             </Link>
 
             <Link
               href={`/${params.locale}/services`}
               className="inline-flex items-center justify-center border border-[rgba(248,237,195,0.24)] px-8 py-4 text-sm uppercase tracking-[0.2em] text-[#F8EDC3] transition hover:bg-[rgba(255,255,255,0.05)]"
             >
-              {copy.services}
+              {t.services}
             </Link>
           </div>
         </div>

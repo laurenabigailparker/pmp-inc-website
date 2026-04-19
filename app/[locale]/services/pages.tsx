@@ -3,15 +3,14 @@ import Link from "next/link";
 import Reveal from "../../components/Reveal";
 import { services } from "../../data/services";
 
-const servicesCopy = {
+const copy = {
   en: {
     eyebrow: "Services",
     title: "Curated support, refined execution.",
     intro:
       "Explore a more elevated way to access support, strategy, and trusted connections designed to move your vision forward.",
     offer: "What We Offer",
-    offerTitle:
-      "Services designed to feel intentional, polished, and high-touch.",
+    offerTitle: "Services designed to feel intentional, polished, and high-touch.",
     view: "View Details",
     next: "Next Step",
     nextTitle: "Ready to explore the right support?",
@@ -26,8 +25,7 @@ const servicesCopy = {
     intro:
       "Explora una forma más elevada de acceder al apoyo, la estrategia y las conexiones de confianza.",
     offer: "Lo Que Ofrecemos",
-    offerTitle:
-      "Servicios pensados para sentirse intencionales, pulidos y de alto nivel.",
+    offerTitle: "Servicios pensados para sentirse intencionales, pulidos y de alto nivel.",
     view: "Ver Detalles",
     next: "Siguiente Paso",
     nextTitle: "¿Lista para encontrar el apoyo correcto?",
@@ -42,8 +40,7 @@ const servicesCopy = {
     intro:
       "Откройте для себя более высокий уровень доступа к поддержке, стратегии и надёжным связям.",
     offer: "Что Мы Предлагаем",
-    offerTitle:
-      "Услуги, которые ощущаются осознанно, изящно и на высоком уровне.",
+    offerTitle: "Услуги, которые ощущаются осознанно, изящно и на высоком уровне.",
     view: "Подробнее",
     next: "Следующий Шаг",
     nextTitle: "Готовы найти правильную поддержку?",
@@ -58,8 +55,7 @@ const servicesCopy = {
     intro:
       "サポート、戦略、信頼できるつながりへ、より上質なかたちでアクセスできます。",
     offer: "ご提供内容",
-    offerTitle:
-      "意図的で洗練され、上質に感じられるサービス。",
+    offerTitle: "意図的で洗練され、上質に感じられるサービス。",
     view: "詳細を見る",
     next: "次のステップ",
     nextTitle: "必要なサポートを見つける準備はできましたか？",
@@ -84,8 +80,7 @@ export default async function ServicesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const copy =
-    servicesCopy[locale as keyof typeof servicesCopy] ?? servicesCopy.en;
+  const t = copy[locale as keyof typeof copy] ?? copy.en;
 
   return (
     <main className="bg-[#5b4636] pt-24 text-[#f3eee7]">
@@ -101,16 +96,12 @@ export default async function ServicesPage({
 
         <div className="relative z-10 mx-auto flex min-h-[70svh] max-w-7xl items-end px-5 py-16 sm:min-h-[78svh] sm:px-6 md:px-10 lg:px-16 lg:py-24">
           <div className="max-w-4xl">
-            <p className="text-sm uppercase tracking-[0.35em] text-[#d8c5b5]">
-              {copy.eyebrow}
-            </p>
-
+            <p className="text-sm uppercase tracking-[0.35em] text-[#d8c5b5]">{t.eyebrow}</p>
             <h1 className="mt-6 text-4xl font-light uppercase leading-[1.03] tracking-[0.04em] sm:text-5xl md:text-6xl lg:text-7xl">
-              {copy.title}
+              {t.title}
             </h1>
-
             <p className="mt-8 max-w-3xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8 md:text-xl">
-              {copy.intro}
+              {t.intro}
             </p>
           </div>
         </div>
@@ -118,12 +109,9 @@ export default async function ServicesPage({
 
       <section className="bg-[#f3eee7] px-5 py-16 text-[#5b4636] sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="text-center text-sm uppercase tracking-[0.3em] text-[#9a7b67]">
-            {copy.offer}
-          </p>
-
+          <p className="text-center text-sm uppercase tracking-[0.3em] text-[#9a7b67]">{t.offer}</p>
           <h2 className="mx-auto mt-6 max-w-4xl text-center text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
-            {copy.offerTitle}
+            {t.offerTitle}
           </h2>
 
           <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
@@ -137,7 +125,6 @@ export default async function ServicesPage({
                       fill
                       className="object-cover transition duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(91,70,54,0.35),rgba(243,238,231,0.02))]" />
                   </div>
 
                   <div className="flex flex-1 flex-col px-6 py-8 sm:px-8 sm:py-10">
@@ -158,7 +145,7 @@ export default async function ServicesPage({
                         href={`/${locale}/services/${service.slug}`}
                         className="inline-flex items-center justify-center border border-[#5b4636] px-6 py-3 text-sm uppercase tracking-[0.2em] text-[#5b4636] transition hover:bg-[#5b4636] hover:text-[#f3eee7]"
                       >
-                        {copy.view}
+                        {t.view}
                       </Link>
                     </div>
                   </div>
@@ -171,16 +158,12 @@ export default async function ServicesPage({
 
       <section className="bg-[#5b4636] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-7xl border border-[rgba(243,238,231,0.12)] px-6 py-12 sm:px-8 sm:py-14 md:px-12 lg:px-16 lg:py-20">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#d8c5b5]">
-            {copy.next}
-          </p>
-
+          <p className="text-sm uppercase tracking-[0.3em] text-[#d8c5b5]">{t.next}</p>
           <h2 className="mt-6 max-w-3xl text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
-            {copy.nextTitle}
+            {t.nextTitle}
           </h2>
-
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8">
-            {copy.nextText}
+            {t.nextText}
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -188,14 +171,14 @@ export default async function ServicesPage({
               href={`/${locale}/contact`}
               className="inline-flex items-center justify-center bg-[#f3eee7] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#5b4636] transition hover:bg-[#e9dfd4] sm:px-10"
             >
-              {copy.contact}
+              {t.contact}
             </Link>
 
             <Link
               href={`/${locale}`}
               className="inline-flex items-center justify-center border border-[#f3eee7] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#f3eee7] transition hover:bg-[#f3eee7] hover:text-[#5b4636] sm:px-10"
             >
-              {copy.home}
+              {t.home}
             </Link>
           </div>
         </div>
