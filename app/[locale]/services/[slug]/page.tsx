@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { services } from "../../../data/services";
+import { getMessages } from "../../../../lib/getMessages";
+import type { Locale } from "../../../../lib/i18n";
 
 export function generateStaticParams() {
   const locales = ["en", "es", "ru", "ja"];
@@ -20,6 +22,7 @@ export default async function ServiceDetailPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  const t = await getMessages(locale as Locale);
   const service = services.find((item) => item.slug === slug);
 
   if (!service) {
@@ -38,7 +41,7 @@ export default async function ServiceDetailPage({
     <main className="bg-[#5b4636] pt-24 text-[#f3eee7]">
       <section className="relative min-h-[70svh] overflow-hidden sm:min-h-[78svh]">
         <Image
-          src={imageMap[service.slug]}
+          src={imageMap[service.slug] ?? "/images/services-hero.jpg"}
           alt={service.title}
           fill
           priority
@@ -67,7 +70,7 @@ export default async function ServiceDetailPage({
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-[#9a7b67]">
-              What’s Included
+              {t.serviceDetail.included}
             </p>
             <ul className="mt-8 space-y-4 text-base leading-7 text-[#6b5647] sm:text-lg sm:leading-8">
               {service.includes.map((item) => (
@@ -78,7 +81,7 @@ export default async function ServiceDetailPage({
 
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-[#9a7b67]">
-              Ideal For
+              {t.serviceDetail.idealFor}
             </p>
             <ul className="mt-8 space-y-4 text-base leading-7 text-[#6b5647] sm:text-lg sm:leading-8">
               {service.idealFor.map((item) => (
@@ -92,16 +95,15 @@ export default async function ServiceDetailPage({
       <section className="bg-[#5b4636] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-7xl border border-[rgba(243,238,231,0.12)] px-6 py-12 sm:px-8 sm:py-14 md:px-12 lg:px-16 lg:py-20">
           <p className="text-sm uppercase tracking-[0.3em] text-[#d8c5b5]">
-            Next Step
+            {t.serviceDetail.nextStep}
           </p>
 
           <h2 className="mt-6 max-w-3xl text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
-            Ready to move forward?
+            {t.serviceDetail.ready}
           </h2>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8">
-            When you’re ready, continue to checkout or reach out directly for a
-            more tailored conversation.
+            {t.serviceDetail.body}
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -109,14 +111,14 @@ export default async function ServiceDetailPage({
               href={`/${locale}/checkout`}
               className="inline-flex items-center justify-center bg-[#f3eee7] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#5b4636] transition hover:bg-[#e9dfd4] sm:px-10"
             >
-              Continue to Checkout
+              {t.serviceDetail.checkout}
             </Link>
 
             <Link
               href={`/${locale}/contact`}
               className="inline-flex items-center justify-center border border-[#f3eee7] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#f3eee7] transition hover:bg-[#f3eee7] hover:text-[#5b4636] sm:px-10"
             >
-              Contact Us
+              {t.serviceDetail.contact}
             </Link>
           </div>
         </div>

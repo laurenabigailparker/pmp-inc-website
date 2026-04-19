@@ -32,6 +32,16 @@ const en = {
     heading: "Ready to get started?",
     button: "Contact Us",
   },
+  serviceDetail: {
+    included: "What’s Included",
+    idealFor: "Ideal For",
+    nextStep: "Next Step",
+    ready: "Ready to move forward?",
+    body:
+      "When you’re ready, continue to checkout or reach out directly for a more tailored conversation.",
+    checkout: "Continue to Checkout",
+    contact: "Contact Us",
+  },
 };
 
 export default en;
