@@ -50,7 +50,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="bg-[#5b4636] text-[#f3eee7]">
+    <main className="bg-[#1E3226] text-[#F8EDC3]">
       <section className="relative min-h-[70svh] overflow-hidden sm:min-h-[78svh]">
         <Image
           src="/images/about-new.jpg"
@@ -59,11 +59,11 @@ export default function AboutPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(91,70,54,0.45),rgba(91,70,54,0.82))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(111,125,123,0.2),rgba(30,50,38,0.9))]" />
 
         <div className="relative z-10 mx-auto flex min-h-[70svh] max-w-7xl items-end px-5 py-16 sm:min-h-[78svh] sm:px-6 md:px-10 lg:px-16 lg:py-24">
           <div className="max-w-4xl">
-            <p className="text-sm uppercase tracking-[0.35em] text-[#d8c5b5]">
+            <p className="text-sm uppercase tracking-[0.35em] text-[#F8EDC3]/85">
               About The Brand
             </p>
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
               Built for people who want more than just a recommendation.
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8 md:text-xl">
+            <p className="mt-8 max-w-2xl text-base leading-7 text-[#F8EDC3]/92 sm:text-lg sm:leading-8 md:text-xl">
               PMP Inc was created to make trusted connections feel more refined,
               more personal, and far more intentional from the very beginning.
             </p>
@@ -79,10 +79,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#f3eee7] px-5 py-16 text-[#5b4636] sm:px-6 md:px-10 lg:px-16 lg:py-24">
+      <section className="bg-[#F8EDC3] px-5 py-16 text-[#1E3226] sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#9a7b67]">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#C27E35]">
               Our Story
             </p>
             <h2 className="mt-6 max-w-xl text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
@@ -90,7 +90,7 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="space-y-6 text-base leading-7 text-[#6b5647] sm:text-lg sm:leading-9">
+          <div className="space-y-6 text-base leading-7 text-[#1E3226]/82 sm:text-lg sm:leading-9">
             <p>
               We built PMP Inc around a simple idea: life becomes easier when
               you know exactly who to trust. Instead of chasing referrals,
@@ -112,9 +112,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#5b4636] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
+      <section className="bg-[#6F7D7B] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="text-center text-sm uppercase tracking-[0.3em] text-[#d8c5b5]">
+          <p className="text-center text-sm uppercase tracking-[0.3em] text-[#F8EDC3]">
             What Defines Us
           </p>
           <h2 className="mx-auto mt-6 max-w-4xl text-center text-3xl font-light uppercase leading-[1.1] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
@@ -124,14 +124,14 @@ export default function AboutPage() {
           <div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {pillars.map((item, index) => (
               <Reveal key={item.title} delay={index * 120}>
-                <div className="h-full bg-[#5b4636] px-6 py-10 transition hover:bg-[#675140] sm:px-8 sm:py-12">
-                  <p className="text-sm uppercase tracking-[0.25em] text-[#d8c5b5]">
+                <div className="h-full border border-[rgba(248,237,195,0.16)] bg-[#6F7D7B] px-6 py-10 transition hover:bg-[#7b8a88] sm:px-8 sm:py-12">
+                  <p className="text-sm uppercase tracking-[0.25em] text-[#CCB363]">
                     Brand Pillar
                   </p>
-                  <h3 className="mt-5 text-xl font-light uppercase tracking-[0.04em] sm:text-2xl">
+                  <h3 className="mt-5 text-xl font-light uppercase tracking-[0.04em] text-[#F8EDC3] sm:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="mt-5 leading-7 text-[#efe7dd] sm:leading-8">
+                  <p className="mt-5 leading-7 text-[#F8EDC3]/92 sm:leading-8">
                     {item.text}
                   </p>
                 </div>
@@ -141,27 +141,27 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#f3eee7] px-5 py-16 text-[#5b4636] sm:px-6 md:px-10 lg:px-16 lg:py-24">
+      <section className="bg-[#F8EDC3] px-5 py-16 text-[#1E3226] sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-20">
-          <div className="group relative min-h-[340px] overflow-hidden border border-[rgba(91,70,54,0.12)] sm:min-h-[420px] lg:min-h-[560px]">
+          <div className="group relative min-h-[340px] overflow-hidden border border-[rgba(194,126,53,0.2)] sm:min-h-[420px] lg:min-h-[560px]">
             <Image
               src="/images/about-detail.jpg"
               alt="Luxury concierge support"
               fill
               className="object-cover transition duration-[2000ms] group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(91,70,54,0.22),rgba(243,238,231,0.04))]" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(30,50,38,0.18),rgba(248,237,195,0.05))]" />
           </div>
 
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#9a7b67]">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#C27E35]">
               Why People Remember Us
             </p>
             <h2 className="mt-6 max-w-xl text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
               Because the experience feels different.
             </h2>
 
-            <div className="mt-8 space-y-6 text-base leading-7 text-[#6b5647] sm:text-lg sm:leading-9">
+            <div className="mt-8 space-y-6 text-base leading-7 text-[#1E3226]/82 sm:text-lg sm:leading-9">
               <p>
                 People remember PMP Inc because the standard feels clear.
                 Everything is more intentional. More refined. More considered.
@@ -177,9 +177,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#5b4636] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
+      <section className="bg-[#76290B] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-5xl">
-          <p className="text-center text-sm uppercase tracking-[0.3em] text-[#d8c5b5]">
+          <p className="text-center text-sm uppercase tracking-[0.3em] text-[#F8EDC3]/82">
             Frequently Asked
           </p>
           <h2 className="mx-auto mt-6 max-w-4xl text-center text-3xl font-light uppercase leading-[1.1] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
@@ -193,7 +193,7 @@ export default function AboutPage() {
               return (
                 <div
                   key={faq.question}
-                  className="border border-[rgba(243,238,231,0.12)] bg-[rgba(255,255,255,0.03)]"
+                  className="border border-[rgba(248,237,195,0.16)] bg-[rgba(255,255,255,0.03)]"
                 >
                   <button
                     type="button"
@@ -203,13 +203,13 @@ export default function AboutPage() {
                     <span className="pr-6 text-base uppercase tracking-[0.03em] sm:text-lg">
                       {faq.question}
                     </span>
-                    <span className="text-2xl text-[#d8c5b5]">
+                    <span className="text-2xl text-[#CCB363]">
                       {isOpen ? "−" : "+"}
                     </span>
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 leading-7 text-[#efe7dd] sm:px-6 sm:pb-6 sm:leading-8">
+                    <div className="px-5 pb-5 leading-7 text-[#F8EDC3]/92 sm:px-6 sm:pb-6 sm:leading-8">
                       {faq.answer}
                     </div>
                   )}
