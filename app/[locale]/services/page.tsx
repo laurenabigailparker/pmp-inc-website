@@ -86,7 +86,7 @@ export default async function ServicesPage({
     <main className="bg-[#5b4636] pt-24 text-[#f3eee7]">
       <section className="relative min-h-[70svh] overflow-hidden sm:min-h-[78svh]">
         <Image
-          src="/images/services-hero.jpg"
+          src="/images/about-new.jpg"
           alt="PMP Inc Services"
           fill
           priority
