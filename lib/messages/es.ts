@@ -1,18 +1,36 @@
 const es = {
-  nav: {
-    about: "Sobre Nosotros",
-    network: "Red",
-    services: "Servicios",
-    contact: "Contacto",
-  },
   hero: {
-    title: "Apoyo estratégico para un crecimiento visionario.",
+    brand: "PMP Inc",
+    title: "Conexiones seleccionadas. Vida elevada.",
     subtitle:
-      "Te ayudamos a conectar tus ideas, prioridades y próximos pasos con claridad e intención.",
+      "Una red refinada de profesionales de confianza, servicios y apoyo de estilo de vida diseñada para quienes esperan más.",
   },
-  contact: {
-    title: "Contacto",
-    description: "Hablemos sobre cómo podemos apoyar tu visión.",
+  steps: {
+    one: {
+      title: "Cuéntanos lo que necesitas",
+      description:
+        "Comparte tu visión, tus prioridades y el nivel de apoyo que estás buscando.",
+    },
+    two: {
+      title: "Recibe una dirección seleccionada",
+      description:
+        "Identificamos los servicios, profesionales y conexiones que mejor se alinean con tus necesidades.",
+    },
+    three: {
+      title: "Avanza con elegancia",
+      description:
+        "Das el siguiente paso hacia una experiencia más fluida con apoyo confiable ya en su lugar.",
+    },
+  },
+  services: {
+    label: "Servicios",
+    heading: "Un enfoque refinado del apoyo",
+    button: "Explorar servicios",
+  },
+  cta: {
+    label: "Acceso privado",
+    heading: "¿Lista para comenzar?",
+    button: "Contáctanos",
   },
 };
 
