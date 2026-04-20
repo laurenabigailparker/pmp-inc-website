@@ -1,112 +1,219 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+
+const copy = {
+  en: {
+    eyebrow: "Contact",
+    title: "Let’s begin the conversation.",
+    intro:
+      "Share what you are looking for, what matters most, and the kind of support you want. We will respond with care, discretion, and intention.",
+    formTitle: "Tell us what you need",
+    name: "Full Name",
+    email: "Email Address",
+    phone: "Phone Number",
+    service: "Area of Interest",
+    message: "How can we support you?",
+    button: "Submit Inquiry",
+    note: "Refined support begins with the right first step.",
+    options: [
+      "Luxury Concierge",
+      "Curated Referrals",
+      "Design Support",
+      "Private Lifestyle Support",
+      "Digital Presence",
+      "Other",
+    ],
+  },
+  es: {
+    eyebrow: "Contacto",
+    title: "Comencemos la conversación.",
+    intro:
+      "Comparte lo que estás buscando, lo que más te importa y el tipo de apoyo que deseas. Responderemos con cuidado, discreción e intención.",
+    formTitle: "Cuéntanos lo que necesitas",
+    name: "Nombre Completo",
+    email: "Correo Electrónico",
+    phone: "Número de Teléfono",
+    service: "Área de Interés",
+    message: "¿Cómo podemos apoyarte?",
+    button: "Enviar Consulta",
+    note: "El apoyo refinado comienza con el primer paso correcto.",
+    options: [
+      "Conserjería de Lujo",
+      "Referencias Seleccionadas",
+      "Apoyo de Diseño",
+      "Apoyo Privado de Estilo de Vida",
+      "Presencia Digital",
+      "Otro",
+    ],
+  },
+  ru: {
+    eyebrow: "Контакты",
+    title: "Давайте начнём разговор.",
+    intro:
+      "Расскажите, что вы ищете, что для вас важнее всего и какой уровень поддержки вам нужен. Мы ответим с вниманием, деликатностью и намерением.",
+    formTitle: "Расскажите, что вам нужно",
+    name: "Полное Имя",
+    email: "Email",
+    phone: "Номер Телефона",
+    service: "Сфера Интереса",
+    message: "Чем мы можем помочь?",
+    button: "Отправить Запрос",
+    note: "Изысканная поддержка начинается с правильного первого шага.",
+    options: [
+      "Премиум Concierge",
+      "Подобранные Рекомендации",
+      "Дизайн-Поддержка",
+      "Частная Lifestyle Поддержка",
+      "Цифровое Присутствие",
+      "Другое",
+    ],
+  },
+  ja: {
+    eyebrow: "お問い合わせ",
+    title: "まずはご相談から。",
+    intro:
+      "お探しの内容、大切にしていること、そして必要なサポートの形をお聞かせください。丁寧に、配慮をもってご案内します。",
+    formTitle: "ご希望をお聞かせください",
+    name: "お名前",
+    email: "メールアドレス",
+    phone: "電話番号",
+    service: "ご関心のある内容",
+    message: "どのようにサポートできますか？",
+    button: "送信する",
+    note: "上質なサポートは、正しい最初の一歩から始まります。",
+    options: [
+      "ラグジュアリーコンシェルジュ",
+      "厳選紹介サービス",
+      "デザインサポート",
+      "プライベートライフスタイルサポート",
+      "デジタルプレゼンス",
+      "その他",
+    ],
+  },
+} as const;
 
 export default function ContactPage() {
+  const pathname = usePathname();
+  const locale = pathname.split("/")[1] || "en";
+
+  const t =
+    locale === "es"
+      ? copy.es
+      : locale === "ru"
+      ? copy.ru
+      : locale === "ja"
+      ? copy.ja
+      : copy.en;
+
+  const [selected, setSelected] = useState<string>(t.options[0]);
+
   return (
-    <main className="bg-[#1E3226] text-[#F8EDC3]">
-      <section className="relative min-h-[70svh] overflow-hidden sm:min-h-[78svh]">
-        <Image
-          src="/images/workspace.jpg"
-          alt="Contact PMP Inc"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(111,125,123,0.2),rgba(30,50,38,0.9))]" />
+    <main className="bg-[#76290B] pt-24 text-[#F8EDC3]">
+      <section className="px-6 py-16 md:px-12 lg:px-16 lg:py-24">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#F8EDC3]/80">
+            {t.eyebrow}
+          </p>
 
-        <div className="relative z-10 mx-auto flex min-h-[70svh] max-w-7xl items-end px-5 py-16 sm:min-h-[78svh] sm:px-6 md:px-10 lg:px-16 lg:py-24">
-          <div className="max-w-4xl">
-            <p className="text-sm uppercase tracking-[0.35em] text-[#F8EDC3]/85">
-              Contact
-            </p>
+          <h1 className="mt-6 max-w-4xl text-4xl font-light uppercase leading-[1.03] tracking-[0.04em] sm:text-5xl md:text-6xl lg:text-7xl">
+            {t.title}
+          </h1>
 
-            <h1 className="mt-6 text-4xl font-light uppercase leading-[1.03] tracking-[0.04em] sm:text-5xl md:text-6xl lg:text-7xl">
-              Start your private inquiry.
-            </h1>
-
-            <p className="mt-8 max-w-3xl text-base leading-7 text-[#F8EDC3]/92 sm:text-lg sm:leading-8 md:text-xl">
-              Tell us what you are looking for and we will help guide you toward
-              the right connection, service, or next step.
-            </p>
-          </div>
+          <p className="mt-8 max-w-3xl text-base leading-8 text-[#F8EDC3]/88 sm:text-lg">
+            {t.intro}
+          </p>
         </div>
       </section>
 
-      <section className="bg-[#F8EDC3] px-5 py-16 text-[#1E3226] sm:px-6 md:px-10 lg:px-16 lg:py-24">
+      <section className="bg-[#F8EDC3] px-6 py-16 text-[#1E3226] md:px-12 lg:px-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-[#C27E35]">
-              Inquire
+              PMP Inc
             </p>
-            <h2 className="mt-6 max-w-xl text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
-              A more thoughtful way to begin the conversation.
+
+            <h2 className="mt-6 text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl">
+              {t.formTitle}
             </h2>
 
-            <div className="mt-8 space-y-6 text-base leading-7 text-[#1E3226]/82 sm:text-lg sm:leading-9">
-              <p>
-                Whether you are seeking a trusted referral, concierge support,
-                design guidance, or a more tailored connection, this is the best
-                place to begin.
-              </p>
-
-              <p>
-                Share as much detail as you like. The more context you provide,
-                the more intentional the direction can be.
-              </p>
-            </div>
+            <p className="mt-8 max-w-md text-base leading-8 text-[#1E3226]/80">
+              {t.note}
+            </p>
           </div>
 
-          <form className="grid gap-px bg-[rgba(194,126,53,0.18)]">
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
-            />
-            <input
-              type="text"
-              placeholder="Phone Number"
-              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
-            />
-            <input
-              type="text"
-              placeholder="Service or Inquiry Type"
-              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
-            />
-            <textarea
-              placeholder="Tell us more about what you need..."
-              rows={7}
-              className="bg-[#fff7dd] px-5 py-4 text-[#1E3226] outline-none placeholder:text-[#6F7D7B] sm:px-6 sm:py-5"
-            />
-            <div className="bg-[#fff7dd] px-5 py-5 sm:px-6 sm:py-6">
+          <form className="grid gap-6">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div>
+                <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                  {t.name}
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
+                />
+              </div>
+
+              <div>
+                <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                  {t.email}
+                </label>
+                <input
+                  type="email"
+                  className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <div>
+                <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                  {t.phone}
+                </label>
+                <input
+                  type="tel"
+                  className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
+                />
+              </div>
+
+              <div>
+                <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                  {t.service}
+                </label>
+                <select
+                  value={selected}
+                  onChange={(e) => setSelected(e.target.value)}
+                  className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
+                >
+                  {t.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                {t.message}
+              </label>
+              <textarea
+                rows={7}
+                className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
+              />
+            </div>
+
+            <div className="pt-2">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center bg-[#CCB363] px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-[#1E3226] transition hover:bg-[#C27E35] hover:text-[#F8EDC3] sm:px-10"
+                className="inline-flex items-center justify-center bg-[#1E3226] px-10 py-4 text-sm uppercase tracking-[0.22em] text-[#F8EDC3] transition hover:bg-[#CCB363] hover:text-[#1E3226]"
               >
-                Submit Inquiry
+                {t.button}
               </button>
             </div>
           </form>
-        </div>
-      </section>
-
-      <section className="bg-[#76290B] px-5 py-16 text-[#F8EDC3] sm:px-6 md:px-10 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-7xl border border-[rgba(248,237,195,0.16)] px-6 py-12 sm:px-8 sm:py-14 md:px-12 lg:px-16 lg:py-20">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#F8EDC3]/82">
-            Refined Support
-          </p>
-
-          <h2 className="mt-6 max-w-3xl text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
-            Every great connection starts with clarity.
-          </h2>
-
-          <p className="mt-6 max-w-2xl text-base leading-7 text-[#F8EDC3]/92 sm:text-lg sm:leading-8">
-            We believe the right experience begins before the introduction is ever made.
-            That is why every inquiry is approached with intention, discretion, and care.
-          </p>
         </div>
       </section>
     </main>

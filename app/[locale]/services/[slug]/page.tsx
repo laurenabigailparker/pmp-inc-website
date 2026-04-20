@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { services } from "../../../data/services";
+import { getServiceBySlug, getServices } from "../../../data/services";
 
 const copy = {
   en: {
@@ -47,9 +47,10 @@ const copy = {
 } as const;
 
 export function generateStaticParams() {
-  const locales = ["en", "es", "ru", "ja"];
+  const locales = ["en", "es", "ru", "ja"] as const;
+
   return locales.flatMap((locale) =>
-    services.map((service) => ({
+    getServices(locale).map((service) => ({
       locale,
       slug: service.slug,
     }))
@@ -63,9 +64,15 @@ export default async function ServiceDetailPage({
 }) {
   const { locale, slug } = await params;
   const t = copy[locale as keyof typeof copy] ?? copy.en;
-  const service = services.find((item) => item.slug === slug);
 
-  if (!service) notFound();
+  const service = getServiceBySlug(
+    locale as "en" | "es" | "ru" | "ja",
+    slug
+  );
+
+  if (!service) {
+    notFound();
+  }
 
   const imageMap: Record<string, string> = {
     "luxury-concierge": "/images/concierge.jpg",
@@ -89,10 +96,14 @@ export default async function ServiceDetailPage({
 
         <div className="relative z-10 mx-auto flex min-h-[70svh] max-w-7xl items-end px-5 py-16 sm:min-h-[78svh] sm:px-6 md:px-10 lg:px-16 lg:py-24">
           <div className="max-w-4xl">
-            <p className="text-sm uppercase tracking-[0.35em] text-[#d8c5b5]">{service.eyebrow}</p>
+            <p className="text-sm uppercase tracking-[0.35em] text-[#d8c5b5]">
+              {service.eyebrow}
+            </p>
+
             <h1 className="mt-6 text-4xl font-light uppercase leading-[1.03] tracking-[0.04em] sm:text-5xl md:text-6xl lg:text-7xl">
               {service.title}
             </h1>
+
             <p className="mt-8 max-w-3xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8 md:text-xl">
               {service.heroText}
             </p>
@@ -103,7 +114,9 @@ export default async function ServiceDetailPage({
       <section className="bg-[#f3eee7] px-5 py-16 text-[#5b4636] sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#9a7b67]">{t.included}</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-[#9a7b67]">
+              {t.included}
+            </p>
             <ul className="mt-8 space-y-4 text-base leading-7 text-[#6b5647] sm:text-lg sm:leading-8">
               {service.includes.map((item) => (
                 <li key={item}>— {item}</li>
@@ -112,7 +125,9 @@ export default async function ServiceDetailPage({
           </div>
 
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-[#9a7b67]">{t.idealFor}</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-[#9a7b67]">
+              {t.idealFor}
+            </p>
             <ul className="mt-8 space-y-4 text-base leading-7 text-[#6b5647] sm:text-lg sm:leading-8">
               {service.idealFor.map((item) => (
                 <li key={item}>— {item}</li>
@@ -124,10 +139,14 @@ export default async function ServiceDetailPage({
 
       <section className="bg-[#5b4636] px-5 py-16 sm:px-6 md:px-10 lg:px-16 lg:py-24">
         <div className="mx-auto max-w-7xl border border-[rgba(243,238,231,0.12)] px-6 py-12 sm:px-8 sm:py-14 md:px-12 lg:px-16 lg:py-20">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#d8c5b5]">{t.nextStep}</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[#d8c5b5]">
+            {t.nextStep}
+          </p>
+
           <h2 className="mt-6 max-w-3xl text-3xl font-light uppercase leading-[1.08] tracking-[0.04em] sm:text-4xl md:text-5xl lg:text-6xl">
             {t.ready}
           </h2>
+
           <p className="mt-6 max-w-2xl text-base leading-7 text-[#efe7dd] sm:text-lg sm:leading-8">
             {t.body}
           </p>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "../../components/Reveal";
-import { services } from "../../data/services";
+import { getServices } from "../../data/services";
 
 const copy = {
   en: {
@@ -10,7 +10,8 @@ const copy = {
     intro:
       "Explore a more elevated way to access support, strategy, and trusted connections designed to move your vision forward.",
     offer: "What We Offer",
-    offerTitle: "Services designed to feel intentional, polished, and high-touch.",
+    offerTitle:
+      "Services designed to feel intentional, polished, and high-touch.",
     view: "View Details",
     next: "Next Step",
     nextTitle: "Ready to explore the right support?",
@@ -25,7 +26,8 @@ const copy = {
     intro:
       "Explora una forma más elevada de acceder al apoyo, la estrategia y las conexiones de confianza.",
     offer: "Lo Que Ofrecemos",
-    offerTitle: "Servicios pensados para sentirse intencionales, pulidos y de alto nivel.",
+    offerTitle:
+      "Servicios pensados para sentirse intencionales, pulidos y de alto nivel.",
     view: "Ver Detalles",
     next: "Siguiente Paso",
     nextTitle: "¿Lista para encontrar el apoyo correcto?",
@@ -40,7 +42,8 @@ const copy = {
     intro:
       "Откройте для себя более высокий уровень доступа к поддержке, стратегии и надёжным связям.",
     offer: "Что Мы Предлагаем",
-    offerTitle: "Услуги, которые ощущаются осознанно, изящно и на высоком уровне.",
+    offerTitle:
+      "Услуги, которые ощущаются осознанно, изящно и на высоком уровне.",
     view: "Подробнее",
     next: "Следующий Шаг",
     nextTitle: "Готовы найти правильную поддержку?",
@@ -55,7 +58,8 @@ const copy = {
     intro:
       "サポート、戦略、信頼できるつながりへ、より上質なかたちでアクセスできます。",
     offer: "ご提供内容",
-    offerTitle: "意図的で洗練され、上質に感じられるサービス。",
+    offerTitle:
+      "意図的で洗練され、上質に感じられるサービス。",
     view: "詳細を見る",
     next: "次のステップ",
     nextTitle: "必要なサポートを見つける準備はできましたか？",
@@ -80,6 +84,7 @@ export default async function ServicesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const services = getServices(locale as "en" | "es" | "ru" | "ja");
   const t = copy[locale as keyof typeof copy] ?? copy.en;
 
   return (
@@ -141,7 +146,7 @@ export default async function ServicesPage({
                     </h3>
 
                     <p className="mt-5 flex-1 leading-7 text-[#6b5647] sm:leading-8">
-                      {service.heroText}
+                      {service.shortText}
                     </p>
 
                     <div className="mt-8">
