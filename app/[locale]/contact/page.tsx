@@ -129,7 +129,7 @@ export default function ContactPage() {
 
       <section className="bg-[#F8EDC3] px-6 py-16 text-[#1E3226] md:px-12 lg:px-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <div>
+          <div className="lg:pt-8">
             <p className="text-sm uppercase tracking-[0.3em] text-[#C27E35]">
               PMP Inc
             </p>
@@ -141,79 +141,114 @@ export default function ContactPage() {
             <p className="mt-8 max-w-md text-base leading-8 text-[#1E3226]/80">
               {t.note}
             </p>
+
+            <div className="mt-10 h-px w-24 bg-[#C27E35]/50" />
+
+            <p className="mt-10 max-w-sm text-sm leading-7 text-[#1E3226]/65">
+              We welcome thoughtful inquiries and tailored requests. Share a few
+              details below and we will follow up with a more curated next step.
+            </p>
           </div>
 
-          <form className="grid gap-6">
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
-                  {t.name}
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
-                />
-              </div>
-
-              <div>
-                <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
-                  {t.email}
-                </label>
-                <input
-                  type="email"
-                  className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
-                />
-              </div>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
-                  {t.phone}
-                </label>
-                <input
-                  type="tel"
-                  className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
-                />
-              </div>
-
-              <div>
-                <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
-                  {t.service}
-                </label>
-                <select
-                  value={selected}
-                  onChange={(e) => setSelected(e.target.value)}
-                  className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
-                >
-                  {t.options.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
-                {t.message}
-              </label>
-              <textarea
-                rows={7}
-                className="w-full border border-[rgba(30,50,38,0.12)] bg-white px-4 py-4 text-sm outline-none transition focus:border-[#C27E35]"
+          <div className="rounded-[2rem] border border-[#1E3226]/10 bg-white/70 p-6 shadow-[0_20px_60px_rgba(30,50,38,0.08)] backdrop-blur-sm sm:p-8 md:p-10">
+            <form
+              action="https://formspree.io/f/meevrgdn"
+              method="POST"
+              className="grid gap-6"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New PMP Inquiry"
               />
-            </div>
 
-            <div className="pt-2">
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center bg-[#1E3226] px-10 py-4 text-sm uppercase tracking-[0.22em] text-[#F8EDC3] transition hover:bg-[#CCB363] hover:text-[#1E3226]"
-              >
-                {t.button}
-              </button>
-            </div>
-          </form>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                    {t.name}
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full rounded-full border border-[rgba(30,50,38,0.12)] bg-white px-5 py-4 text-sm text-[#1E3226] outline-none transition duration-300 placeholder:text-[#1E3226]/35 focus:border-[#C27E35] focus:ring-2 focus:ring-[#C27E35]/20"
+                    placeholder={t.name}
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                    {t.email}
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full rounded-full border border-[rgba(30,50,38,0.12)] bg-white px-5 py-4 text-sm text-[#1E3226] outline-none transition duration-300 placeholder:text-[#1E3226]/35 focus:border-[#C27E35] focus:ring-2 focus:ring-[#C27E35]/20"
+                    placeholder={t.email}
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                    {t.phone}
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    className="w-full rounded-full border border-[rgba(30,50,38,0.12)] bg-white px-5 py-4 text-sm text-[#1E3226] outline-none transition duration-300 placeholder:text-[#1E3226]/35 focus:border-[#C27E35] focus:ring-2 focus:ring-[#C27E35]/20"
+                    placeholder={t.phone}
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                    {t.service}
+                  </label>
+                  <select
+                    name="service"
+                    value={selected}
+                    onChange={(e) => setSelected(e.target.value)}
+                    className="w-full appearance-none rounded-full border border-[rgba(30,50,38,0.12)] bg-white px-5 py-4 text-sm text-[#1E3226] outline-none transition duration-300 focus:border-[#C27E35] focus:ring-2 focus:ring-[#C27E35]/20"
+                  >
+                    {t.options.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="mb-3 block text-xs uppercase tracking-[0.22em] text-[#6B4C38]">
+                  {t.message}
+                </label>
+                <textarea
+                  name="message"
+                  rows={7}
+                  required
+                  className="w-full rounded-[1.75rem] border border-[rgba(30,50,38,0.12)] bg-white px-5 py-5 text-sm text-[#1E3226] outline-none transition duration-300 placeholder:text-[#1E3226]/35 focus:border-[#C27E35] focus:ring-2 focus:ring-[#C27E35]/20"
+                  placeholder={t.message}
+                />
+              </div>
+
+              <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-xs uppercase tracking-[0.2em] text-[#1E3226]/45">
+                  Elegant support. Intentional next steps.
+                </p>
+
+                <button
+                  type="submit"
+                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-[#1E3226] px-8 py-4 text-sm uppercase tracking-[0.22em] text-[#F8EDC3] transition duration-300 hover:-translate-y-0.5 hover:bg-[#CCB363] hover:text-[#1E3226]"
+                >
+                  {t.button}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
     </main>
