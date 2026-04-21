@@ -25,6 +25,8 @@ const copy = {
       "Digital Presence",
       "Other",
     ],
+    supportText:
+      "We welcome thoughtful inquiries and tailored requests. Share a few details below and we will follow up with a more curated next step.",
   },
   es: {
     eyebrow: "Contacto",
@@ -47,6 +49,8 @@ const copy = {
       "Presencia Digital",
       "Otro",
     ],
+    supportText:
+      "Recibimos consultas bien pensadas y solicitudes personalizadas. Comparte algunos detalles y te responderemos con un siguiente paso más seleccionado.",
   },
   ru: {
     eyebrow: "Контакты",
@@ -69,6 +73,8 @@ const copy = {
       "Цифровое Присутствие",
       "Другое",
     ],
+    supportText:
+      "Мы приветствуем продуманные обращения и индивидуальные запросы. Поделитесь деталями, и мы предложим вам наиболее подходящий следующий шаг.",
   },
   ja: {
     eyebrow: "お問い合わせ",
@@ -91,6 +97,8 @@ const copy = {
       "デジタルプレゼンス",
       "その他",
     ],
+    supportText:
+      "丁寧なご相談やご要望を歓迎しております。いくつか詳細をご記入いただければ、最適な次のステップをご案内いたします。",
   },
 } as const;
 
@@ -145,8 +153,7 @@ export default function ContactPage() {
             <div className="mt-10 h-px w-24 bg-[#C27E35]/50" />
 
             <p className="mt-10 max-w-sm text-sm leading-7 text-[#1E3226]/65">
-              We welcome thoughtful inquiries and tailored requests. Share a few
-              details below and we will follow up with a more curated next step.
+              {t.supportText}
             </p>
           </div>
 
@@ -156,10 +163,11 @@ export default function ContactPage() {
               method="POST"
               className="grid gap-6"
             >
+              <input type="hidden" name="_subject" value="New PMP Inquiry" />
               <input
                 type="hidden"
-                name="_subject"
-                value="New PMP Inquiry"
+                name="_redirect"
+                value={`https://pmpincprofessionals.com/${locale}/thank-you`}
               />
 
               <div className="grid gap-6 md:grid-cols-2">
