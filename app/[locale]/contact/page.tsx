@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const copy = {
   en: {
@@ -104,6 +104,7 @@ const copy = {
 
 export default function ContactPage() {
   const pathname = usePathname();
+  const router = useRouter();
   const locale = pathname.split("/")[1] || "en";
 
   const t =
@@ -116,6 +117,7 @@ export default function ContactPage() {
       : copy.en;
 
   const [selected, setSelected] = useState<string>(t.options[0]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
     <main className="bg-[#76290B] pt-24 text-[#F8EDC3]">
@@ -159,16 +161,38 @@ export default function ContactPage() {
 
           <div className="rounded-[2rem] border border-[#1E3226]/10 bg-white/70 p-6 shadow-[0_20px_60px_rgba(30,50,38,0.08)] backdrop-blur-sm sm:p-8 md:p-10">
             <form
-              action="https://formspree.io/f/meevrgdn"
-              method="POST"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setIsSubmitting(true);
+
+                const form = e.currentTarget;
+                const formData = new FormData(form);
+
+                try {
+                  const response = await fetch("https://formspree.io/f/meevrgdn", {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                      Accept: "application/json",
+                    },
+                  });
+
+                  if (response.ok) {
+                    form.reset();
+                    setSelected(t.options[0]);
+                    router.push(`/${locale}/thank-you`);
+                  } else {
+                    alert("Something went wrong. Please try again.");
+                  }
+                } catch {
+                  alert("Something went wrong. Please try again.");
+                } finally {
+                  setIsSubmitting(false);
+                }
+              }}
               className="grid gap-6"
             >
               <input type="hidden" name="_subject" value="New PMP Inquiry" />
-              <input
-                type="hidden"
-                name="_redirect"
-                value={`https://pmpincprofessionals.com/${locale}/thank-you`}
-              />
 
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
@@ -250,9 +274,10 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-[#1E3226] px-8 py-4 text-sm uppercase tracking-[0.22em] text-[#F8EDC3] transition duration-300 hover:-translate-y-0.5 hover:bg-[#CCB363] hover:text-[#1E3226]"
+                  disabled={isSubmitting}
+                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-[#1E3226] px-8 py-4 text-sm uppercase tracking-[0.22em] text-[#F8EDC3] transition duration-300 hover:-translate-y-0.5 hover:bg-[#CCB363] hover:text-[#1E3226] disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  {t.button}
+                  {isSubmitting ? "Sending..." : t.button}
                 </button>
               </div>
             </form>
